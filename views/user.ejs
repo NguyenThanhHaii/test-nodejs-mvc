@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Danh sách người dùng</title>
+  </head>
+  <body>
+    <%- include('partials/header.ejs', {source: "Haiii"}) %>
+
+    <h1>Danh sách người dùng</h1>
+    <ul>
+      <% data.forEach(user => { %>
+      <li><%= user.name %> - <%= user.gender === 'male' ? "Nam" : "Nữ" %></li>
+      <% }) %>
+    </ul>
+
+    <h2>Thêm người dùng mới</h2>
+    <form action="/users/add" method="POST">
+      <input type="text" name="name" placeholder="Tên người dùng" />
+      <button type="submit">Thêm</button>
+    </form>
+  </body>
+</html>
